@@ -1,0 +1,348 @@
+.custom-nav a:first-child{
+  
+  
+  float: left;
+  padding: 14px 16px;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+}
+.custom-nav a{
+  display: inline;
+  padding: 14px 16px;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 17px;
+  text-align: center;
+  float: right;
+}
+
+.custom-nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.custom-nav{
+  background-color: blue;
+  overflow:auto;
+  position: fixed;
+  width: 100%;
+  top:0;    
+  z-index: 2000
+}
+.custom-nav input{
+  display: inline;
+  margin: 9px 10px;
+  padding:5px;
+  border-radius: 10px;
+  float: right;
+}
+
+
+.buttonnav{
+ float: right;
+ background-color: grey;
+ border: none;
+ cursor:pointer;
+ color: white;
+ padding: 5px 32px;
+ text-align: center;
+ font-size: 16px; 
+ 
+}
+.buttonnav1{
+  float: right;
+  background-color: grey;
+  border: none;
+  cursor:pointer;
+  color: white;
+  padding: 5px 32px;
+  text-align: center;
+  font-size: 16px; 
+  height: 50px;
+ }
+a{
+ float: right;
+ text-decoration: none;
+ color: white;
+ vertical-align: middle;
+}
+
+
+.home {
+    margin-top: 5%;
+    margin-left: 5%;
+    border: 3px solid #fff;
+    padding: 10px;
+}
+
+.individual {
+ 
+    margin-top: 10px;
+    width: 26%;
+    float: left;
+    padding: 30px;
+    border: 2px solid red;
+    margin-right: 20px;
+} 
+
+
+
+.button{
+    background-color: blue; /* Green */
+    border: none;
+    cursor:pointer;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    font-size: 16px;  
+}
+.btnmodify{
+    background-color: blue; /* Green */
+    border: none;
+    margin-left: auto;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor:pointer;
+}
+
+.btndelete{
+  
+    background-color: red; /* Green */
+    float: right;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    font-size: 16px;
+    cursor:pointer;
+}
+
+.form{
+    margin: auto;
+    width: 50%;
+    border: 3px solid blue;
+    padding: 50px;
+    
+} 
+.input,textarea {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 10px ;
+    box-sizing: border-box;
+   
+    padding: 10;  
+   
+  }
+  .alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+  }
+ 
+.searchtext{
+    padding: 12px 20px;
+    margin: 10px ;
+    box-sizing: border-box;
+   
+    padding: 10;  
+    margin-top: 10px;
+    width: 80%;
+  
+}
+.searchbutton {
+    float: none;
+    width: 10%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  .buttonadd{
+    background-color: blue; /* Green */
+    border: none;
+    float: right;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    font-size: 16px;  
+    margin-right: 50px;
+  }
+  .error{
+      color: red;
+      font-size: 12px;
+  }
+  .loginerror{
+    color: red;
+    font-size: 20px;
+    text-align: center;
+  }
+  .image{
+    
+    height: 250px;
+    width:100%,
+  }
+  .dashboard{
+    margin-top: 60px;
+    float: left;
+    font-size: 50px;
+    padding: 50px;
+    border: 2px solid red;
+    margin-left: 10%;
+  }
+
+  .dashboardtotal{
+    margin-top: 60px;
+    float: right;
+    
+    font-size: 50px;
+    padding: 50px;
+    border: 2px solid red;
+    margin-right: 12%;
+    
+  }
+  
+
+  .dashboardpie{
+    text-align: center;
+    margin-top: 10px;
+    width: 70%;
+    float: left;
+    font-size: 20px;
+    padding: 50px;
+    border: 2px solid red;
+    margin-left: 10%;
+    
+  }
+  .dashboardbar{
+    text-align: center;
+    margin-top: 10px;
+    width: 70%;
+    float: left;
+    font-size: 20px;
+    padding: 50px;
+    border: 2px solid red;
+    margin-left: 10%;
+  }
+
+
+  
+  @media screen and ( max-width:530px){
+    .custom-nav a, .custom-nav a:first-child,.buttonnav1{
+        float: none;
+        display: block;
+        position: relative;
+        width: 100%;
+        text-align: center;
+       
+    }
+    .home{
+      margin-top: 60%;
+      width:50%;
+      
+    }
+    .searchtext{
+      width: 100%;
+    }
+    .searchbutton{
+    background-color: white;
+     width: 10%;
+     border: none;
+    }
+    .individual {
+      margin-top: 10px;
+     width: 100%;
+      
+      
+      border: 2px solid  red;
+    }
+    .image{
+    height: 150px;
+    width:40%,
+  } 
+  .form{
+    margin-top: 50%;
+  }
+  .input,textarea {
+    margin-left: 10%;
+    width: 80%;
+  }
+  .buttonadd{
+    
+    width: 100%; 
+    
+    
+  }
+  .addproduct{
+    width: 100%; 
+    margin-left: 40%;
+  }
+  .filter{
+    
+    width: 100%; 
+    margin-left: 20%;
+  }
+  .btnmodify{
+   
+    width: 100%;
+    
+}
+.btndelete{
+  width: 100%;
+}
+.dashboard{
+  margin-top: 60%;
+  font-size: 20px;
+  padding: 50px;
+  border: 2px solid red;
+  
+}
+.dashboardtotal{
+  margin-left: 10%;
+  font-size: 20px;
+  padding: 50px;
+  border: 2px solid red;
+}
+.dashboardpie{
+  text-align: center;
+  margin-top: 10px;
+  padding: 50px;
+  border: 2px solid red;  
+}
+  }
+  @media screen and ( max-width:812px){
+    .image{
+      height: 180px;
+    width:100%,
+  } 
+  .input,textarea {
+    margin-top: 10%;
+    margin-left: 17%;
+    width: 70%;
+  }
+  .btnmodify{
+   
+    width: 50%;
+    
+}
+.btndelete{
+  width: 50%;
+}
+.dashboard,.dashboardtotal{
+  margin-top: 10%;
+  font-size: 20px;
+  padding: 50px;
+  border: 2px solid red;
+  
+}
+
+  }
+
+ 
+
+  
