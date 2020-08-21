@@ -42,7 +42,7 @@ class Navbar extends React.Component {
                         <div className="custom-nav">
                             <Link to="/">Product_Inventory</Link>
                             <button type="button" className="buttonnav1" onClick={this.logout}> logout</button>&nbsp;&nbsp;
-                           <p className="buttonnav" disabled={true}>{username} </p>&nbsp;
+                           <Link className="buttonnav" disabled={true}>{username} </Link>&nbsp;
                     </div>
                     }
 

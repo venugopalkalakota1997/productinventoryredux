@@ -6,12 +6,16 @@ import { bindActionCreators } from 'redux';
 import deleteProductBroadcast from '../actions/deleteProductBroadcast'
 import selectProductBroadcast from '../actions/selectedproductBroadcast'
 import getsearchBroadcast from '../actions/getsearchBroadcast'
-
+import getcategorysearchBroadcast from '../actions/categorysearchBroadcast'
+import getavalabilestockBroadcast from '../actions/getavalabilestockBroadcast'
 class Product extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            product: ""
+            product: this.props.productlist,
+            permenantproducts: this.props.productlist,
+            selectedOption: false,
+            categorystatus: false
         }
     }
 
@@ -31,32 +35,68 @@ class Product extends React.Component {
                         <span style={{ float: "right", padding: "0px 32px" }}>Quantity:{product.quantity}</span>
                     </p>
                     <span><br></br><br></br>
-                    {username !== null && 
-                        <span>
-                            <button className="btnmodify" onClick={()=>this.editProduct(product)}>Modify</button>
-                            <button className="btndelete" onClick={() => this.props.deleteProduct(product)}>Delete</button>
-                        </span>
-        }
+                        {username !== null &&
+                            <span>
+                                <button className="btnmodify" onClick={() => this.editProduct(product)}>Modify</button>
+                                <button className="btndelete" onClick={() => this.props.deleteProduct(product)}>Delete</button>
+                            </span>
+                        }
                     </span>
                 </div>
             )
         })
     }
 
-    editProduct=(product)=>{
-       
-       
+    editProduct = (product) => {
+
+
         this.props.history.push({
             pathname: '/editproduct',
             state: { product: product }
         })
-        this.props.editProduct(this.props.product)
+        this.props.editProduct(product)
     }
 
+    getcategorysearch = (event) => {
 
 
+        if (event.target.value !== 'Select Category' && !this.state.selectedOption) {
 
+            this.props.categorysearch(event.target.value)
 
+            this.setState({
+                category: true,
+                selectedOption: false
+            })
+            console.log(this.state.products);
+        }
+        else {
+            this.setState({ category: false })
+            this.getAllProducts()
+        }
+
+    }
+
+    onValueChange = (event) => {
+
+        this.setState({
+
+            selectedOption: !this.state.selectedOption
+        });
+        this.avalabilestock()
+    }
+
+    avalabilestock() {
+
+        if (!this.state.selectedOption) {
+            console.log(this.state.selectedOption)
+            this.props.avalabilestock()
+        }
+        else {
+            console.log(this.state.selectedOption)
+            this.getAllProducts();
+        }
+    }
 
     render() {
         let username = localStorage.getItem("username")
@@ -67,12 +107,30 @@ class Product extends React.Component {
                 <br></br>
                 <br></br>
                 <span>
-                {username !== null &&
-                    <div className="addproduct">
-                        <button className="buttonadd" ><Link to='/add'>Addproduct&nbsp;&nbsp;</Link></button>
-                        <button className="buttonadd"><Link to='/dashboard'>Dashboard</Link></button>
+                    <div className="filter">
+                        <p>Filter by:</p>
+                        {!this.state.selectedOption &&
+                            <select id="productcategory" onChange={this.getcategorysearch}>
+                                <option id="productcategory">Select Category</option>
+                                <option id="productcategory">Televison</option>
+                                <option id="productcategory">Mobile </option>
+                                <option id="productcategory">Furniture</option>
+                                <option id="productcategory">Computer Accessories</option>
+                            </select>
+                        } &emsp;
+                        {!this.state.category &&
+                            <label>
+                                Product in stock :
+                        <input type="checkbox" defaultChecked={this.state.selectedOption} onChange={this.onValueChange} />Yes
+                         </label>
+                        }
                     </div>
-    }
+                    {username !== null &&
+                        <div className="addproduct">
+                            <button className="buttonadd" ><Link to='/add'>Addproduct&nbsp;&nbsp;</Link></button>
+                            <button className="buttonadd"><Link to='/dashboard'>Dashboard</Link></button>
+                        </div>
+                    }
                 </span><br></br><br></br>
                 {this.getAllProducts()}
             </div>
@@ -94,7 +152,9 @@ function convertEventToPropsAndDispatchFromContainer(dispatch) {
     return bindActionCreators({
         deleteProduct: deleteProductBroadcast,
         editProduct: selectProductBroadcast,
-        getsearch: getsearchBroadcast
+        getsearch: getsearchBroadcast,
+        categorysearch: getcategorysearchBroadcast,
+        avalabilestock: getavalabilestockBroadcast
     }, dispatch)
 }
 

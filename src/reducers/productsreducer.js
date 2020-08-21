@@ -117,30 +117,38 @@ const allproductsreducer = function allproductsreducer(state = null, action) {
       return products;
     case "UPDATE_PRODUCT":
       console.log(action.payload)
-      return products.map(product => {
+      var updatedproducts = state.map(product => {
         if (product.id === action.payload.id) {
-          return {
-            ...product,
-            name: action.payload.name,
-            productdetails: action.payload.productdetails,
-            quantity: action.payload.quantity,
-            price: action.payload.price,
-            category: action.payload.category,
-            image: action.payload.image
-          }
-        };
+          product.name = action.payload.name;
+          product.productdetails = action.payload.productdetails;
+          product.quantity = action.payload.quantity;
+          product.price = action.payload.price;
+          product.category = action.payload.category;
+          product.image = action.payload.image;
+        }
         return product;
       });
+      return updatedproducts;
     case "SEARCH_PRODUCT":
       products = products.filter((product) => {
         return (product.name.toLowerCase().includes(action.payload))
       })
-      return products
+      return products;
+    case "CATEGORY_SEARCH_PRODUCT":
+      products = products.filter((fproduct) => {
+        return (fproduct.category.includes(action.payload))
+      })
+      return products;
+    case "AVAILABLE_PRODUCT":
+      let newproducts = products.filter((fproduct) => {
+        return (fproduct.quantity !== "0")
+      })
+      return newproducts;
+
     default:
       break;
   }
-
-  return products
+  return products;
 }
 
 export default allproductsreducer

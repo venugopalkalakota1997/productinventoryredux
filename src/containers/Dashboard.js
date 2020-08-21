@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Bar, Pie } from 'react-chartjs-2';
+
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             products: this.props.productlist,
-            totalproducts: this.props.productlist.length,
-            totalquantity: 2,
+            totalproducts: 0,
+            totalquantity: 0,
             category: '',
             noproduct: [],
             noproductcategory: [],
@@ -27,6 +28,7 @@ class Dashboard extends React.Component {
                     }
                 ]
             },
+
             datacategory: {
                 labels: [],
                 datasets: [
@@ -36,31 +38,34 @@ class Dashboard extends React.Component {
                         data: []
                     }
                 ]
-
             },
-
         }
     }
 
 
-
     componentWillMount() {
-
         this.getAllProducts()
 
     }
 
+
     getAllProducts = (event) => {
-        
-     this.state.products.map((product) => {
-            console.log(product.quantity);
+
+let totalquantity=0;
+        this.setState({
+            products: this.props.productlist,
+            totalproducts: this.props.productlist.length
+        })
+
+        this.state.products.map((product) => {
+            totalquantity= Number(product.quantity) + totalquantity
             this.setState({
-                totalquantity: this.state.totalquantity + Number(product.quantity)
+                totalquantity:totalquantity
             })
             console.log(this.state.totalquantity);
             return this.state.totalquantity;
         })
-
+        this.gettotalproductpie()
     }
 
 
@@ -90,8 +95,10 @@ class Dashboard extends React.Component {
 
         this.setState({
             data: {
+                labels: ['Televison', 'Mobile', 'Furniture', 'Computer Accesories'],
                 datasets: [
                     {
+
                         borderWidth: 1,
                         backgroundColor: [
                             'indigo',
@@ -110,35 +117,88 @@ class Dashboard extends React.Component {
         console.log(event.target.value)
         if (event.target.value === "Televison") {
 
-            this.getAllProducts("Televison")
+            this.setState({
+                datacategory: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '',
+                            backgroundColor: 'blue',
+                            data: ''
+                        }
+                    ]
+                }
+            })
+            this.getcategoryproductTelevisionbar()
         }
         else if (event.target.value === "Mobile") {
 
-            this.getAllProducts("Mobile")
+            this.setState({
+                datacategory: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '',
+                            backgroundColor: 'blue',
+                            data: ''
+                        }
+                    ]
+                }
+            })
+            this.getcategoryproductMobilebar()
         }
         else if (event.target.value === "Furniture") {
 
-            this.getAllProducts("Furniture")
+            this.setState({
+                datacategory: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '',
+                            backgroundColor: 'blue',
+                            data: ''
+                        }
+                    ]
+                }
+            })
+            this.getcategoryproductFurniturebar()
         }
         else if (event.target.value === "Computer Accessories") {
 
-            this.getAllProducts("Computer Accessories")
+            this.setState({
+                datacategory: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: '',
+                            backgroundColor: 'blue',
+                            data: ''
+                        }
+                    ]
+                }
+            })
+            this.getcategoryproductComputerbar()
         }
     }
 
     getcategoryproductTelevisionbar() {
         let datahere = [];
+        let labelshere = [];
+        let noproducthere = [];
         this.setState({
             noproduct: []
         })
-        this.state.products.map((product) => {
+
+        this.props.productlist.map((product) => {
+
             if (product.category === "Televison") {
                 datahere = datahere.concat(product.quantity)
+                labelshere = labelshere.concat(product.name)
                 this.setState({
 
                     datacategory: {
 
-                        labels: this.state.datacategory.labels.concat(product.name),
+                        labels: labelshere,
                         datasets: [
                             {
                                 label: product.category,
@@ -150,9 +210,9 @@ class Dashboard extends React.Component {
                 })
 
                 if (product.quantity === '0') {
-
+                    noproducthere = noproducthere.concat(product.name)
                     this.setState({
-                        noproduct: this.state.noproduct.concat(product.name),
+                        noproduct: noproducthere,
 
                     })
                 }
@@ -165,16 +225,20 @@ class Dashboard extends React.Component {
     }
     getcategoryproductMobilebar() {
         let datahere = [];
+        let labelshere = [];
+        let noproducthere = [];
         this.setState({
             noproduct: []
         })
         this.state.products.map((product) => {
             if (product.category === "Mobile") {
                 datahere = datahere.concat(product.quantity)
+                labelshere = labelshere.concat(product.name)
                 this.setState({
 
                     datacategory: {
-                        labels: this.state.datacategory.labels.concat(product.name),
+
+                        labels: labelshere,
                         datasets: [
                             {
                                 label: product.category,
@@ -184,10 +248,11 @@ class Dashboard extends React.Component {
                         ]
                     }
                 })
-                if (product.quantity === '0') {
 
+                if (product.quantity === '0') {
+                    noproducthere = noproducthere.concat(product.name)
                     this.setState({
-                        noproduct: this.state.noproduct.concat(product.name),
+                        noproduct: noproducthere,
 
                     })
                 }
@@ -197,16 +262,20 @@ class Dashboard extends React.Component {
     }
     getcategoryproductFurniturebar() {
         let datahere = [];
+        let labelshere = [];
+        let noproducthere = [];
         this.setState({
             noproduct: []
         })
         this.state.products.map((product) => {
             if (product.category === "Furniture") {
                 datahere = datahere.concat(product.quantity)
+                labelshere = labelshere.concat(product.name)
                 this.setState({
 
                     datacategory: {
-                        labels: this.state.datacategory.labels.concat(product.name),
+
+                        labels: labelshere,
                         datasets: [
                             {
                                 label: product.category,
@@ -216,10 +285,11 @@ class Dashboard extends React.Component {
                         ]
                     }
                 })
-                if (product.quantity === '0' || product.quantity === 0) {
 
+                if (product.quantity === '0') {
+                    noproducthere = noproducthere.concat(product.name)
                     this.setState({
-                        noproduct: this.state.noproduct.concat(product.name),
+                        noproduct: noproducthere,
 
                     })
                 }
@@ -229,17 +299,20 @@ class Dashboard extends React.Component {
     }
     getcategoryproductComputerbar() {
         let datahere = [];
+        let labelshere = [];
+        let noproducthere = [];
         this.setState({
             noproduct: []
         })
         this.state.products.map((product) => {
             if (product.category === "Computer Accessories") {
-
                 datahere = datahere.concat(product.quantity)
+                labelshere = labelshere.concat(product.name)
                 this.setState({
 
                     datacategory: {
-                        labels: this.state.datacategory.labels.concat(product.name),
+
+                        labels: labelshere,
                         datasets: [
                             {
                                 label: product.category,
@@ -249,10 +322,11 @@ class Dashboard extends React.Component {
                         ]
                     }
                 })
-                if (product.quantity === '0') {
 
+                if (product.quantity === '0') {
+                    noproducthere = noproducthere.concat(product.name)
                     this.setState({
-                        noproduct: this.state.noproduct.concat(product.name),
+                        noproduct: noproducthere,
 
                     })
                 }
@@ -263,8 +337,8 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-
             <div>
+
                 <label className="dashboard">Total Products : {this.state.totalproducts}</label>
                 <label className="dashboardtotal">Total Quantity : {this.state.totalquantity}</label>
                 <br></br><br></br>
@@ -300,11 +374,9 @@ class Dashboard extends React.Component {
     }
 }
 function convertStoreToProps(store) {
-    console.log('Received complete store....in product container');
     console.log(store);
     return {
         productlist: store.products,
-
     }
 }
 export default connect(convertStoreToProps)(Dashboard);

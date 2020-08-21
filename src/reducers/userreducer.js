@@ -106,6 +106,7 @@ const allusersreducer = function alluserreducer(state = null, action) {
            )
            console.log(userdetails)
           return userdetails
+         
         default:
             break;
     }
