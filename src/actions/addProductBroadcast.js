@@ -2,7 +2,7 @@ const addProductBroadcast = function(product){
 
     console.log(product);
     return ({
-        type:'UPDATE_PRODUCT',
+        type:'NEW_PRODUCT',
         payload:product
     })
 
