@@ -8,6 +8,9 @@ import selectProductBroadcast from '../actions/selectedproductBroadcast'
 import getsearchBroadcast from '../actions/getsearchBroadcast'
 import getcategorysearchBroadcast from '../actions/categorysearchBroadcast'
 import getavalabilestockBroadcast from '../actions/getavalabilestockBroadcast'
+import allProodutsBroadcast from '../actions/allProodutsBroadcast'
+// import axios from "axios";
+
 class Product extends React.Component {
     constructor(props) {
         super(props)
@@ -18,8 +21,20 @@ class Product extends React.Component {
             categorystatus: false
         }
     }
+    //    componentWillMount=()=>{
+    //     axios.get('http://localhost:3000/productdetails')
+    //     .then(response => {
+
+    //         console.log(response.data)
+    //       this.props.allProoduts(response.data)
+
+    //     }, error => {
+    //         console.error(error);
+    //     })
+    //    }
 
     getAllProducts = () => {
+
         let username = localStorage.getItem("username")
         console.log("Received props from store -> products");
         return this.props.productlist.map(product => {
@@ -144,12 +159,12 @@ function convertStoreToProps(store) {
     console.log(store);
     return {
         productlist: store.products,
-
     }
 }
 
 function convertEventToPropsAndDispatchFromContainer(dispatch) {
     return bindActionCreators({
+        allProoduts: allProodutsBroadcast,
         deleteProduct: deleteProductBroadcast,
         editProduct: selectProductBroadcast,
         getsearch: getsearchBroadcast,

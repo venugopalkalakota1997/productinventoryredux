@@ -3,6 +3,7 @@ import './style.css';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import addUserBroadcast from '../actions/addUserBroadcast'
+import axios from "axios";
 class Signup extends React.Component {
 
 
@@ -13,8 +14,6 @@ class Signup extends React.Component {
             password: '',
             confirmPassword: '',
             contactNumber: '',
-
-
             nameError: '',
             contactNumberError: '',
             passwordError: '',
@@ -141,6 +140,16 @@ class Signup extends React.Component {
             "password": this.state.password,
             "contactNumber": this.state.contactNumber,
         }
+        axios.post('http://localhost:3000/userdetails/', userRequestBody)
+            .then(response => {
+                console.log(response);
+                this.setState({ signSuccess: true })
+                this.intializeState()
+                this.props.history.push('/login')
+            }, error => {
+                console.error(error);
+            })
+        
         this.props.adduser(userRequestBody)
         this.props.history.push('/login')
     }

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import addProductBroadcast from '../actions/addProductBroadcast'
 
+import axios from "axios";
 
 class Addproduct extends React.Component {
     constructor(props) {
@@ -41,6 +42,13 @@ class Addproduct extends React.Component {
             "category": this.state.category,
             "image":this.state.image
         }
+        axios.post('http://localhost:3000/productdetails/', productRequestBody)
+                .then(response=>{
+                    console.log(response);
+                    this.props.history.push('/')
+                }, error=>{
+                    console.error(error);
+                })
         this.props.addproduct(productRequestBody)
         this.props.history.push('/')
 

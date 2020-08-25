@@ -1,0 +1,261 @@
+{
+  "productdetails": [
+    {
+      "id": 16,
+      "name": "Iphone",
+      "productdetails": "6gd ram/256gb memory",
+      "quantity": "100",
+      "price": "100000",
+      "category": "Mobile",
+      "image": "mobile.jpg"
+    },
+    {
+      "id": 17,
+      "name": "oneplus 8pro",
+      "productdetails": "8gb ram/256gb memory ",
+      "quantity": "0",
+      "price": "70000",
+      "category": "Mobile",
+      "image": "mobile.jpg"
+    },
+    {
+      "name": "samsung S10",
+      "productdetails": "8gb ram/256gb memory",
+      "quantity": "22",
+      "price": "10",
+      "category": "Mobile",
+      "image": "mobile.jpg",
+      "id": 19
+    },
+    {
+      "name": "venu",
+      "productdetails": "hjjhhjhjhjhjhjhjhjhjhjhjnn",
+      "quantity": "12",
+      "price": "12",
+      "category": "Televison",
+      "image": "televison.jpg",
+      "id": 23
+    },
+    {
+      "name": "hp laptop",
+      "productdetails": "intel i3 processor,1gb ram",
+      "quantity": "50",
+      "price": "300000",
+      "category": "Computer Accessories",
+      "image": "computer.jpg",
+      "id": 24
+    },
+    {
+      "name": "sofa",
+      "productdetails": "eydrfkjyredfcvbhjui7trfgvbn",
+      "quantity": "0",
+      "price": "10000",
+      "category": "Furniture",
+      "image": "furniture.jpg",
+      "id": 25
+    },
+    {
+      "name": "Optical mouse",
+      "productdetails": "opicat mouse",
+      "quantity": "01",
+      "price": "300",
+      "category": "Computer Accessories",
+      "image": "computer.jpg",
+      "id": 26
+    },
+    {
+      "name": "realme ",
+      "productdetails": "12gd / 256gb",
+      "quantity": "22",
+      "price": "1000",
+      "category": "Mobile",
+      "image": "mobile.jpg",
+      "id": 27
+    },
+    {
+      "id": 28,
+      "name": "sony tv",
+      "productdetails": "32inch LCD",
+      "quantity": "3",
+      "price": "20000",
+      "category": "Televison",
+      "image": "televison.jpg"
+    },
+    {
+      "id": 29,
+      "name": "venu",
+      "productdetails": "jjjj",
+      "quantity": "10",
+      "price": "10",
+      "category": "Televison",
+      "image": "televison.jpg"
+    },
+    {
+      "name": "LG Telev",
+      "productdetails": "hghgjhjuhg",
+      "quantity": "0",
+      "price": "100",
+      "category": "Televison",
+      "image": "televison.jpg",
+      "id": 30
+    },
+    {
+      "name": "venu",
+      "productdetails": "uhjbnjhgvuytghbvn ",
+      "quantity": "20",
+      "price": "200",
+      "category": "Furniture",
+      "image": "mobile.jpg",
+      "id": 31
+    },
+    {
+      "id": 32,
+      "name": "LG Telev",
+      "productdetails": "uyhjbnhjnhujn",
+      "quantity": "20",
+      "price": "100",
+      "category": "Televison",
+      "image": "furniture.jpg"
+    },
+    {
+      "name": "LG Telev",
+      "productdetails": "rdfghbjnkuytf",
+      "quantity": "22",
+      "price": "100",
+      "category": "Televison",
+      "image": "televison.jpg",
+      "id": 33
+    },
+    {
+      "id": 34,
+      "name": "ytrfcvbhjghfv",
+      "productdetails": "ygufcvbnhjgv",
+      "quantity": "100",
+      "price": "100",
+      "category": "Televison",
+      "image": "computer.jpg"
+    },
+    {
+      "name": "new",
+      "productdetails": "hgbhjghbvnhjb",
+      "quantity": ".0",
+      "price": "1000",
+      "category": "Televison",
+      "image": "mobile.jpg",
+      "id": 35
+    },
+    {
+      "name": "venu",
+      "productdetails": "fghbjnkjhuytgfhb",
+      "quantity": "1000",
+      "price": "100",
+      "category": "Furniture",
+      "image": "furniture.jpg",
+      "id": 36
+    },
+    {
+      "name": "Venu",
+      "productdetails": "phgvbntfgyhbgfv",
+      "quantity": "20",
+      "price": "1000",
+      "category": "Mobile",
+      "image": "mobile.jpg",
+      "id": 37
+    },
+    {
+      "name": "venu",
+      "productdetails": "drtfgvbhjn",
+      "quantity": "10",
+      "price": "10",
+      "category": "Furniture",
+      "image": "computer.jpg",
+      "id": 38
+    }
+  ],
+  "userdetails": [
+    {
+      "id": 1,
+      "name": "venu",
+      "contactnumber": 9703898363,
+      "password": "pwd",
+      "relatedTo_id": 1
+    },
+    {
+      "password": "nn",
+      "contactNumber": "nn",
+      "id": 2
+    },
+    {
+      "name": "jj",
+      "password": "jj",
+      "contactNumber": "jjj",
+      "id": 3
+    },
+    {
+      "name": "hh",
+      "password": "hh",
+      "contactNumber": "hh",
+      "id": 4
+    },
+    {
+      "name": "kk",
+      "password": "kk",
+      "contactNumber": "kk",
+      "id": 5
+    },
+    {
+      "name": "jkj",
+      "password": "kjk",
+      "contactNumber": "jkjk",
+      "id": 6
+    },
+    {
+      "name": "nn",
+      "password": "nn",
+      "contactNumber": "nn",
+      "id": 7
+    },
+    {
+      "name": "hjh",
+      "password": "hjj",
+      "contactNumber": "hjhj",
+      "id": 8
+    },
+    {
+      "name": "venu",
+      "password": "pwd",
+      "contactNumber": "9703898363",
+      "id": 9
+    },
+    {
+      "name": "kk",
+      "password": "pwd",
+      "contactNumber": "7894561230",
+      "id": 10
+    },
+    {
+      "name": "kiran",
+      "password": "pw",
+      "contactNumber": "7894561230",
+      "id": 11
+    },
+    {
+      "name": "hom",
+      "password": "oo",
+      "contactNumber": "7777777777",
+      "id": 12
+    },
+    {
+      "name": "jhh",
+      "password": "pwd",
+      "contactNumber": "7894661230",
+      "id": 13
+    },
+    {
+      "name": "venu",
+      "password": "pwd",
+      "contactNumber": "7894561230",
+      "id": 14
+    }
+  ]
+}

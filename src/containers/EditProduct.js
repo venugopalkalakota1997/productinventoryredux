@@ -1,8 +1,8 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import updateProductBroadcast from '../actions/addProductBroadcast'
-
+import updateProductBroadcast from '../actions/updateProductBroadcast'
+import axios from "axios";
 class EditProduct extends React.Component {
     constructor(props) {
         super(props)
@@ -46,6 +46,15 @@ class EditProduct extends React.Component {
                 "category": this.state.category,
                 "image": this.state.image
             }
+            axios.put('http://localhost:3000/productdetails/' + this.state.id, productRequestBody)
+                .then(response => {
+                    console.log(response);
+
+                    this.props.history.push('/')
+
+                }, error => {
+                    console.error(error);
+                })
             this.props.updateproduct(productRequestBody)
            this.props.history.push('/')
 
